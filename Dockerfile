@@ -33,4 +33,5 @@ RUN apk upgrade --no-cache \
 
 COPY --from=builder2 /build/gpt-load .
 EXPOSE 3001
+USER 10014
 ENTRYPOINT ["/app/gpt-load"]
