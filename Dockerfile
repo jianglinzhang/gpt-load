@@ -20,6 +20,8 @@ ADD go.mod go.sum ./
 RUN go mod download
 
 COPY . .
+# 创建配置
+COPY .env.example .env
 COPY --from=builder /build/dist ./web/dist
 RUN go build -ldflags "-s -w -X gpt-load/internal/version.Version=${VERSION}" -o gpt-load
 
